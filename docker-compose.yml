@@ -28,7 +28,9 @@ services:
   # SPARK (With Data Volumes)
   # ----------------------------
   spark-master:
-    image: bitnamilegacy/spark:3.5.1
+    build:
+      context: .
+      dockerfile: Dockerfile.spark
     container_name: spark-master
     environment:
       - SPARK_MODE=master
@@ -43,7 +45,9 @@ services:
       - vitalflow-net
 
   spark-worker:
-    image: bitnamilegacy/spark:3.5.1
+    build:
+      context: .
+      dockerfile: Dockerfile.spark
     container_name: spark-worker
     environment:
       - SPARK_MODE=worker

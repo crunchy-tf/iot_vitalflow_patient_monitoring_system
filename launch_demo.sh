@@ -32,11 +32,8 @@ osascript -e "tell application \"Terminal\" to do script \"cd '$DIR' && clear &&
 docker exec spark-master rm -rf /tmp/checkpoints
 
 # We add a small sleep here to let the others initialize first
-osascript -e "tell application \"Terminal\" to do script \"cd '$DIR' && clear && echo '==================================================' && echo '⚡ SPARK STREAMING ENGINE' && echo '==================================================' && echo '⏳ Waiting 5s for initialization...' && sleep 5 && docker exec -it spark-master spark-submit --packages org.apache.spark:spark-sql-kafka-0-10_2.12:3.5.1 /app/src/spark/processor.py\""
+osascript -e "tell application \"Terminal\" to do script \"cd '$DIR' && clear && echo '==================================================' && echo '⚡ SPARK STREAMING ENGINE' && echo '==================================================' && echo '⏳ Waiting 5s for initialization...' && sleep 5 && docker exec -it spark-master spark-submit /app/src/spark/processor.py\""
 
-echo "✅ All systems launched in SEPARATE TERMINALS!"
-echo "🌐 Open your NEW Dashboard: http://localhost:3000"
-echo "🔌 API Docs available at: http://localhost:8000/docs"
 
 echo "✅ All systems launched!"
 echo "🌐 Open your NEW Dashboard: http://localhost:3000"
